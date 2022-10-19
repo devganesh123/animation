@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --heading-one: 1.5rem;
+  --para: 16px;
+  --dose-yellow: #fecc00;
+  --dose-bg-blue: #a2dcea;
+  --dose-drk-blue: #003350;
+  --dose-white: #fff;
+  --dose-black: #000;
+  --dose-grey: #d3d3d3;
+  --dose-stroke-radius: 240px;
+  --dose-stroke-width: 30px;
+  --dose-stroke-movement: 10px;
+}
+
+.container {
+  max-width: 890px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: var(--heading-one);
+  text-transform: capitalize;
+  color: var(--dose-drk-blue);
+  font-weight: 800;
+  letter-spacing: -1;
+}
+
+header {
+  position: relative;
+  margin-top: 3.5em;
+  margin-bottom: 3em;
+  padding-top: 1em;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8em;
+  height: 8px;
+  background: var(--dose-yellow);
+}
+
+header p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dose-drk-blue);
+}
+
+header h1 sup {
+  font-size: 0.6em;
+}
+
+.tab-section {
+  margin-left: 3em;
+}
+
+.tab-items {
+  margin-bottom: 1em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tab-items li {
+  list-style-type: none;
+  border: 1px solid var(--dose-drk-blue);
+  padding: 10px 1em;
+  color: var(--dose-grey);
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab-items li.active {
+  background: var(--dose-drk-blue);
+  color: var(--dose-white);
+}
+
+.achieve-desc {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  background: var(--dose-bg-blue);
+  padding: 5px 1em;
+}
+
+.achieve-desc > * {
+  color: var(--dose-drk-blue);
+}
+
+.achieve-desc sup {
+  font-size: 0.65rem;
+}
+
+.achive-section small {
+  color: var(--dose-drk-blue);
+  font-size: 0.65rem;
+}
+
+svg {
+  position: relative;
+  width: calc(var(--dose-stroke-radius) + var(--dose-stroke-width));
+  height: calc(var(--dose-stroke-radius) + var(--dose-stroke-width));
+}
+svg circle {
+  width: calc(var(--dose-stroke-radius) + var(--dose-stroke-width));
+  height: calc(var(--dose-stroke-radius) + var(--dose-stroke-width));
+  fill: none;
+  stroke: var(--dose-grey);
+  stroke-width: var(--dose-stroke-width);
+}
+svg circle:nth-child(2) {
+  width: calc(var(--dose-stroke-radius) + var(--dose-stroke-width));
+  height: calc(var(--dose-stroke-radius) + var(--dose-stroke-width));
+  fill: none;
+  stroke: var(--dose-yellow);
+  stroke-width: var(--dose-stroke-width);
+  stroke-dasharray: 754px;
+  stroke-dashoffset: 754px;
+  transform: rotate(-10deg);
+  transform-origin: center;
+  /* animation: animRotate 2s linear forwards; */
+}
+@keyframes animRotate {
+  100% {
+    stroke-dashoffset: 165px;
+  }
+}
+
+/* tab module */
+[data-tab-content] {
+  display: none;
+}
+
+.active[data-tab-content] {
+  display: block;
+}
