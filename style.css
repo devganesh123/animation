@@ -28,25 +28,25 @@ body {
   --dose-white: #fff;
   --dose-black: #000;
   --dose-grey: #d3d3d3;
-  --dose-bg-grey:#f1f1f1;
+  --dose-bg-grey: #f1f1f1;
   --dose-outer-radius: 240px;
   --dose-inner-radius: 160px;
   --dose-stroke-width: 30px;
   --dose-stroke-movement: 10px;
-  --dose-outer-stroke:754px;
-  --dose-inner-stroke:503px;
+  --dose-outer-stroke: 754px;
+  --dose-inner-stroke: 503px;
 
-  --dose-percent-outer-one:60;
-  --dose-percent-inner-one:46;
-  --dose-percent-outer-two:48;
+  --dose-percent-outer-one: 60;
+  --dose-percent-inner-one: 46;
+  --dose-percent-outer-two: 48;
 
-  --dose-percent-second-outer:57;
-  --dose-percent-second-inner:42;
-  --dose-percent-second-outer-two:48;
+  --dose-percent-second-outer: 57;
+  --dose-percent-second-inner: 42;
+  --dose-percent-second-outer-two: 48;
 }
 
 .container {
-  max-width: 940px;
+  max-width: 955px;
   margin-left: auto;
 }
 
@@ -84,19 +84,22 @@ header p {
 header h1 sup {
   font-size: 0.6em;
 }
-
-.tab-section {
-  flex:0 0 60%;
-  max-width: 60%;
-  margin-left: 3em;
+.dosing-row {
+  margin-left: 2em;
 }
-.tab-chart-section{
-  flex:0 0 40%;
-  max-width: 40%;
+.tab-section {
+  flex: 0 0 65%;
+  max-width: 65%;
+}
+.tab-chart-section {
+  flex: 0 0 35%;
+  max-width: 35%;
   align-self: flex-end;
+  padding-right: 3em;
+  padding-left: 2em;
 }
 .tab-items {
-  margin-bottom: 1em;
+  margin-bottom: 2.5em;
   display: flex;
   flex-wrap: wrap;
 }
@@ -105,6 +108,7 @@ header h1 sup {
   list-style-type: none;
   border: 1px solid var(--dose-drk-blue);
   padding: 10px 1em;
+  font-size: 0.9rem;
   color: var(--dose-grey);
   text-transform: capitalize;
   text-align: center;
@@ -119,18 +123,18 @@ header h1 sup {
 
 .achieve-desc {
   position: relative;
-  margin-top: 1.5em;
+  margin-top: 2.5em;
   margin-bottom: 1.5em;
   background: var(--dose-bg-blue);
   padding: 5px 1em;
 }
 .achieve-desc::after {
-  content:"";
+  content: "";
   position: absolute;
-  top:0;
-  right:0;
-  bottom:0;
-  width:10px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 10px;
   background: var(--dose-yellow);
 }
 
@@ -147,7 +151,7 @@ header h1 sup {
   font-size: 0.65rem;
 }
 
-svg{
+svg {
   position: relative;
 }
 
@@ -185,125 +189,155 @@ svg.outer-svg circle:nth-child(2) {
   stroke: var(--dose-yellow);
   stroke-width: var(--dose-stroke-width);
   stroke-dasharray: var(--dose-outer-stroke);
-  stroke-dashoffset: calc( var(--dose-outer-stroke) * -1);
+  stroke-dashoffset: calc(var(--dose-outer-stroke) * -1);
   transform: rotate(-90deg);
   transform-origin: center;
-  animation: animRotateOuter 2s linear forwards; 
+  animation: animRotateOuter 2s linear forwards;
 }
 
 svg.inner-svg circle:nth-child(2) {
   width: calc(var(--dose-inner-radius) + var(--dose-stroke-width));
   height: calc(var(--dose-inner-radius) + var(--dose-stroke-width));
   fill: none;
-  stroke: var(--dose-yellow);
+  stroke: #fecc0073;
   stroke-width: var(--dose-stroke-width);
   stroke-dasharray: var(--dose-inner-stroke);
-  stroke-dashoffset: calc( var(--dose-inner-stroke) * -1);
+  stroke-dashoffset: calc(var(--dose-inner-stroke) * -1);
   transform: rotate(-90deg);
   transform-origin: center;
-  animation: animRotateInner 2s linear forwards; 
+  animation: animRotateInner 2s linear forwards;
 }
 
 svg.outer-svg-two circle:nth-child(2) {
-  animation: animRotateOuterTwo 2s linear forwards; 
+  animation: animRotateOuterTwo 2s linear forwards;
 }
 
 svg.second-outer-svg circle:nth-child(2) {
-  animation: animRotateSecondOuter 2s linear forwards; 
+  animation: animRotateSecondOuter 2s linear forwards;
 }
 svg.second-inner-svg circle:nth-child(2) {
-  animation: animRotateSecondInner 2s linear forwards; 
+  animation: animRotateSecondInner 2s linear forwards;
 }
 svg.second-outer-svg-two circle:nth-child(2) {
-  animation: animRotateSecondOuterTwo 2s linear forwards; 
+  animation: animRotateSecondOuterTwo 2s linear forwards;
 }
 @keyframes animRotateOuter {
   100% {
-    stroke-dashoffset: calc((var(--dose-outer-stroke) - (var(--dose-outer-stroke) * var(--dose-percent-outer-one))/100) * -1);
+    stroke-dashoffset: calc(
+      (
+          var(--dose-outer-stroke) -
+            (var(--dose-outer-stroke) * var(--dose-percent-outer-one)) / 100
+        ) * -1
+    );
   }
 }
 
 @keyframes animRotateInner {
   100% {
-    stroke-dashoffset: calc((var(--dose-inner-stroke) - (var(--dose-inner-stroke) * var(--dose-percent-inner-one))/100) * -1);
+    stroke-dashoffset: calc(
+      (
+          var(--dose-inner-stroke) -
+            (var(--dose-inner-stroke) * var(--dose-percent-inner-one)) / 100
+        ) * -1
+    );
   }
 }
 
 @keyframes animRotateOuterTwo {
   100% {
-    stroke-dashoffset: calc((var(--dose-outer-stroke) - (var(--dose-outer-stroke) * var(--dose-percent-outer-two))/100) * -1);
+    stroke-dashoffset: calc(
+      (
+          var(--dose-outer-stroke) -
+            (var(--dose-outer-stroke) * var(--dose-percent-outer-two)) / 100
+        ) * -1
+    );
   }
 }
 
 @keyframes animRotateSecondOuter {
   100% {
-    stroke-dashoffset: calc((var(--dose-outer-stroke) - (var(--dose-outer-stroke) * var(--dose-percent-second-outer))/100) * -1);
+    stroke-dashoffset: calc(
+      (
+          var(--dose-outer-stroke) -
+            (var(--dose-outer-stroke) * var(--dose-percent-second-outer)) / 100
+        ) * -1
+    );
   }
 }
 @keyframes animRotateSecondInner {
   100% {
-    stroke-dashoffset: calc((var(--dose-inner-stroke) - (var(--dose-inner-stroke) * var(--dose-percent-second-inner))/100) * -1);
+    stroke-dashoffset: calc(
+      (
+          var(--dose-inner-stroke) -
+            (var(--dose-inner-stroke) * var(--dose-percent-second-inner)) / 100
+        ) * -1
+    );
   }
 }
 @keyframes animRotateSecondOuterTwo {
   100% {
-    stroke-dashoffset: calc((var(--dose-outer-stroke) - (var(--dose-outer-stroke) * var(--dose-percent-second-outer-two))/100) * -1);
+    stroke-dashoffset: calc(
+      (
+          var(--dose-outer-stroke) -
+            (var(--dose-outer-stroke) * var(--dose-percent-second-outer-two)) /
+            100
+        ) * -1
+    );
   }
 }
-.svg-section{
+.svg-section {
   position: relative;
 }
 
-.svg-row{
+.svg-row {
   display: flex;
   flex-wrap: nowrap;
   position: relative;
-  gap:3em;
+  gap: 2em;
 }
-.svg-col{
+.svg-col {
   position: relative;
 }
-.svg-col-outer{
+.svg-col-outer {
   position: relative;
-
 }
 
-.svg-col-inner{
+.svg-col-inner {
   position: absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%)
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.svg-img{
+.svg-img {
   position: absolute;
-  left:50%;
-  top:50%;
-  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.svg-altair-img img{
-  max-height: 30px;
+.svg-altair-img img {
+  max-height: 25px;
 }
-.svg-view-img img{
-  max-height: 150px;
-
+.svg-view-img img {
+  max-height: 120px;
 }
-.svg-content{
+.svg-content {
   position: absolute;
   font-weight: bold;
-  color:var(--dose-drk-blue);
-  font-size: .9rem;
+  color: var(--dose-drk-blue);
+  font-size: 0.9rem;
 }
-.svg-content-top{
-  top:5px;
-  left:50%;
-  transform: translate(5px,0);
+.svg-content-top {
+  top: 5px;
+  left: 50%;
+  transform: translate(5px, 0);
 }
-.svg-content-bottom{
-  bottom:50px;
-  left:80%;
-  transform: translate(0%,0);
+.svg-content-bottom {
+  bottom: 50px;
+  left: 80%;
+  transform: translate(0%, 0);
+  transition: all 2000ms ease-in-out;
 }
 /* tab module */
 [data-tab-content] {
@@ -311,37 +345,43 @@ svg.second-outer-svg-two circle:nth-child(2) {
 }
 
 .active[data-tab-content] {
-  display:block;
+  display: block;
 }
-.achive-shade-content{
+.achive-shade-content {
   display: flex;
-    justify-content: flex-end;
-    text-align: center;
+  justify-content: flex-end;
+  text-align: center;
+  margin-top: 6em;
+  margin-bottom: 4em;
 }
-.achive-shade-content p{
+.achive-shade-content p {
   background-color: var(--dose-yellow);
-  padding:5px 1em;
-  font-weight: 500;
-  font-size: .9em;
+  padding: 5px 1em;
+  font-weight: 700;
+  font-size: 0.9em;
+  color: var(--dose-drk-blue);
 }
-.dosing-row{
+.dosing-row {
   display: flex;
 }
 
-.chart-comparison{
+.chart-comparison {
   position: relative;
 }
-.chart-comparison p{
+.chart-comparison p {
   position: relative;
   padding-left: 30px;
-  font-size: 13px;
+  font-size: 12px;
 }
-.chart-comparison p::before{
-  content:"";
+.chart-comparison p::before {
+  content: "";
   position: absolute;
-  left:0;
-  top:0;
-  width:20px;
+  left: 0;
+  top: 0;
+  width: 20px;
   height: 20px;
   background: var(--dose-yellow);
+}
+.chart-comparison p:last-child::before {
+  background: #fecc0073;
 }
